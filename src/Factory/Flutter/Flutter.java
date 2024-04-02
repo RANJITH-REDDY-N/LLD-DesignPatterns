@@ -15,15 +15,8 @@ public class Flutter{
     public static void setReferenceRate() {
         System.out.println("This is to set reference rate of the screen while app is open.");
     }
-    public static UIFactory getUIFactory(SupportedPlatform supportedPlatform){
-        return switch (supportedPlatform) {
-            case ANDROID -> new AndroidUIFactory();
-            case IOS -> new IosUIFactory();
-            default -> new MacUIFactory();
-        };
-    }
 
     public UIFactory createUIFactory() {
-        return getUIFactory(supportedPlatform);
+        return UIFactoryFactory.createUIFactory(supportedPlatform);
     }
 }
